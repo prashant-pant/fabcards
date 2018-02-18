@@ -1,0 +1,52 @@
+<div class="container container-xs">
+  <form id="booking" name="form" ng-submit="book()">
+    <div class="form-group row">
+      <label class="col-xs-12">Room type
+        <input type="text" class="form-control" name="roomType" disabled ng-model="bookingForm.roomType" placeholder="Room Type">
+      </label>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-xs-12">Price
+        <input type="text" class="form-control" name="price" disabled ng-model="price" placeholder="Price">
+      </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-xs-12">Start Date
+          <p class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="startDate" is-open="startDatePopup1.opened" datepicker-options="startDateOptions" ng-change="dateChanged()" ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="startDatePopup1.opened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </label>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-xs-12">End Date
+          <p class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="endDate" is-open="endDatePopup1.opened" datepicker-options="endDateOptions" ng-change="dateChanged()" ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="endDatePopup1.opened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </label>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-xs-12">Total Price
+        <input type="text" class="form-control" name="totalPrice" disabled value="{{totalPrice}}" placeholder="Total Price">
+      </label>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-xs-12">Fab Card Balance
+        <input type="text" class="form-control" name="balance" disabled ng-model="fabCard.balance" placeholder="Fab Card Balance">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-disabled="!fabCard || price==null || !totalPrice || fabCard.balance < totalPrice">Book</button>
+    <button type="button" class="btn btn-primary" ng-if="fabCard && fabCard.balance < totalPrice" ng-click="showRechargeFabCardModal()">Insufficient Balance! Recharge Here !!</button>
+    <button type="button" class="btn btn-primary" ng-if="!fabCard" ng-click="showCreateFabCardModal()">Create FabCard !</button>
+  </form>
+</div>

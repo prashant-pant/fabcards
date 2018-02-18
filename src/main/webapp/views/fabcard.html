@@ -1,0 +1,11 @@
+<div class="container container-md">
+  <div ng-if="!fabcard" class="alert alert-danger">
+      <h5>Oops you don't have a fabcard yet !</h5>
+      <div class="form-group"><button ng-click="showCreateFabCardModal()" class="btn btn-default">Create One! </button> </div>
+  </div>
+  <div ng-if="fabcard" class="alert alert-success">
+    <p>FabCard ID : {{fabcard.uuid}}</p>
+    <p>FabCard Balance : {{fabcard.balance}} </p>
+    <div class="form-group"><button ng-click="showRechargeFabCardModal()" class="btn btn-default">Recharge! </button> </div>
+  </div>
+</div>

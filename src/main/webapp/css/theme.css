@@ -1,0 +1,53 @@
+.container-md {
+		max-width: 800px;
+}
+.container-xs {
+		max-width: 400px;
+}
+li:not(.active) [ui-sref] {
+  cursor: pointer;
+}
+
+.error-block {
+  color: red;
+}
+
+.room-box {
+  opacity: 0.7;
+  border: 1px solid #e2e2e2;
+  min-height: 150px;
+	margin-bottom: 30px;
+}
+
+.room-box:hover {
+  color: #fff;
+  background: #e2e2e2;
+  opacity: 1.0;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, .5);
+  transition: all .2s;
+}
+
+.room-img img {
+  width: 100%;
+  border-radius: 0px;
+  max-height: auto;
+}
+
+.room-img img:hover {
+  opacity: 1.0;
+}
+
+.room-name {
+  padding: 10px;
+}
+
+.room-name a {
+  color: #000
+}
+
+.room-name a:hover {}
+
+.room-lists ul li a {
+  font-size: 14px;
+  color: #dd000;
+}

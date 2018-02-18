@@ -1,0 +1,31 @@
+<div class="container container-md">
+  <form id="profileUpdateForm" name="form" ng-submit="updateProfile()">
+    <div class="form-group">
+      <label for="email">Name</label> <input type="text" class="form-control" name="name" ng-model="profileUpdateForm.name" required placeholder="Name">
+      <span ng-show="form.name$dirty && form.name.$error.required" class="help-block error-block">Name is required</span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label> <input type="email" class="form-control" name="email" ng-model="profileUpdateForm.email" placeholder="Email" disabled required>
+      <span ng-show="form.email.$dirty && form.email.$error.email" class="help-block error-block">Please Enter valid Email Address</span>
+    </div>
+    <div class="form-group">
+      <label for="address">Address </label> <input type="text" class="form-control" name="address" ng-model="profileUpdateForm.addressLine" placeholder="address">
+    </div>
+    <div class="form-group">
+      <label for="area">Area </label> <input type="text" class="form-control" name="area" ng-model="profileUpdateForm.area" placeholder="Area">
+    </div>
+    <div class="form-group">
+      <label for="city">City </label> <input type="text" class="form-control" name="city" ng-model="profileUpdateForm.city" placeholder="City" required>
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <select name="state" class="form-control" required name="state" ng-model="profileUpdateForm.state" ng-options="state as state for state in states"></select>
+    </div>
+    <div class="form-group">
+      <label for="pincode">Pincode </label> <input type="text" class="form-control" required name="pincode" ng-model="profileUpdateForm.pincode" placeholder="Pincode"  ng-pattern="/^[1-9]\d{5}$/">
+			<span class="help-block error-block" ng-show="form.pincode.$dirty && form.pincode.$invalid">Please enter valid pincode</span>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Update Profile</button>
+  </form>
+
+</div>

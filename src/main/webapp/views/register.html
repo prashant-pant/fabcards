@@ -1,0 +1,41 @@
+<div class="container container-md">
+  <form id="registrationForm" name="form" ng-submit="register()">
+    <div class="form-group">
+      <label for="email">Name</label> <input type="text" class="form-control" name="name" ng-model="registrationForm.name" required placeholder="Name">
+      <span ng-show="form.name$dirty && form.name.$error.required" class="help-block error-block">Name is required</span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label> <input type="email" required class="form-control" name="email" ng-model="registrationForm.email" ng-change="emailChanged()" placeholder="Email">
+      <span ng-show="form.email.$dirty && form.email.$error.email" class="help-block error-block">Please Enter valid Email Address</span>
+      <span ng-show="emailAvailable === false" class="help-block error-block">Account already exists for the given Email</span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label> <input name="password" type="password" class="form-control" ng-model="registrationForm.password" placeholder="Password" required>
+      <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block error-block">Password is required</span>
+    </div>
+    <div class="form-group">
+      <label for="repeatPassword">Repeat Password</label> <input type="password" class="form-control" ng-model="registrationForm.repeatPassword" placeholder="Password">
+      <span ng-show="registrationForm.password != registrationForm.repeatPassword" class="help-block error-block">Passwords don't match</span>
+    </div>
+    <div class="form-group">
+      <label for="address">Address </label> <input type="text" class="form-control" name="address" ng-model="registrationForm.addressLine" placeholder="address">
+    </div>
+    <div class="form-group">
+      <label for="area">Area </label> <input type="text" class="form-control" name="area" ng-model="registrationForm.area" placeholder="Area">
+    </div>
+    <div class="form-group">
+      <label for="city">City </label> <input type="text" class="form-control" name="city" ng-model="registrationForm.city" placeholder="City" required>
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <select name="state" class="form-control" required name="state" ng-model="registrationForm.state" ng-options="state as state for state in states"></select>
+    </div>
+    <div class="form-group">
+      <label for="pincode">Pincode </label> <input type="text" class="form-control" required name="pincode" ng-model="registrationForm.pincode" placeholder="Pincode" ng-pattern="/^[1-9]\d{5}$/">
+			<span class="help-block error-block" ng-show="form.pincode.$dirty && form.pincode.$invalid">Please enter valid pincode</span>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid || (registrationForm.password != registrationForm.repeatPassword)">Register</button>
+    <button type="submit" ui-sref="login" class="btn btn-default">Login</button>
+  </form>
+
+</div>
